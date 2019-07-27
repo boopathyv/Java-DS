@@ -5,7 +5,7 @@ public class AVLTree {
 	Node root;
 	
 	public void add(int data) {
-		insert(root,data);
+		root = insert(root,data);
 	}
 	
 	private Node insert(Node node,int data) {
@@ -39,7 +39,7 @@ public class AVLTree {
 			return rightRotate(node);	
 		}
 		if(balance > 1 && data > node.left.data) {
-			node.left = rightRotate(node.left);
+			node.left = leftRotate(node.left);
 			return rightRotate(node);
 		}
 		
@@ -54,8 +54,8 @@ public class AVLTree {
 		node.right = tmpNode;
 		
 		
-		node.height = max(height(node.left),height(node.right));
-		rotatedNode.height = max(height(rotatedNode.left),height(rotatedNode.right));
+		node.height = max(height(node.left),height(node.right)) + 1;
+		rotatedNode.height = max(height(rotatedNode.left),height(rotatedNode.right)) + 1;
 		
 		return rotatedNode;
 	}
@@ -67,8 +67,8 @@ public class AVLTree {
 		rotatedNode.right = node;
 		node.left = tmpNode;
 		
-		node.height = max(height(node.left),height(node.right));
-		rotatedNode.height = max(height(rotatedNode.left),height(rotatedNode.right));
+		node.height = max(height(node.left),height(node.right)) + 1;
+		rotatedNode.height = max(height(rotatedNode.left),height(rotatedNode.right)) + 1;
 		
 		return rotatedNode;
 	}

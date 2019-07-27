@@ -1,0 +1,21 @@
+avlTree.add(20);
+avlTree.add(30);
+avlTree.add(25);
+avlTree.add(24);
+avlTree.add(50);
+avlTree.add(18);
+avlTree.add(15);
+avlTree.add(17);
+avlTree.add(22);
+
+				  25
+			  20       30
+		  17     24       50
+		15 18  22
+		     
+InOrder:
+15,17,18,20,22,24,25,30,50
+PreOrder:
+25,20,17,15,18,24,22,30,50
+PostOrder:
+15,18,17,22,24,20,50,30,25
