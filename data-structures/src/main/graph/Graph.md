@@ -52,9 +52,17 @@ Following two are the most commonly used representations of a graph.
 >> * Breadth First Search
 >> * Depth First Search
 
+(https://www-users.cs.umn.edu/~karypis/parbook/Lectures/AG/chap10_slides.pdf)
+* Minimum Spanning Tree: Prim’s Algorithm
+* Single Source Shortest Paths: Dijikstra’s Algorithm
+* All-Pairs Shortest Paths: Matrix-Multiplication Based Algorithm
+* Floyd’s Algorithm
+
 # BFS
 # DFS
 >> * The data structure which is being used in DFS is stack. The process is similar to BFS algorithm. In DFS, the edges that leads to an *unvisited node* are called *discovery edges* while the edges that leads to an *already visited node* are called *block edges*.
 
 # Dijikstra Algorithm
 https://medium.com/@ssaurel/calculate-shortest-paths-in-java-by-implementing-dijkstras-algorithm-5c1db06b6541
+
+# Minimum Spanning Tree: Prim’s Algorithm
