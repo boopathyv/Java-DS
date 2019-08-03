@@ -182,6 +182,44 @@ public class Tree<E> {
 	            printAllPossiblePaths(node.rightLeaf, path, pathLen); 
 	        } 
 	    } 
+	
+	public void remove(E data) {
+		this.head = removeNode(data, this.head);
+	}
+	public Node removeNode(E data,Node<E> node){
+		if(node == null){
+			return node;
+		}else if(node.data == data){
+			if(node.leftLeaf == null && node.rightLeaf == null){
+				node = null;
+			}else if(node.leftLeaf == null){
+				node = node.rightLeaf;
+			}else if(node.rightLeaf == null){
+				node = node.leftLeaf;
+			}else{
+				if(node.rightLeaf != null){
+					node.data = getMinValue(node.rightLeaf);
+					node.rightLeaf = removeNode(node.data,node.rightLeaf);
+				}
+				// else if(node.left != null){
+				// 	node.data = this.getMaxValue(node.left);
+				// 	node.left = this.removeNode(node.data,node.left);
+				// }
+			}
+		}else if((int)node.data < (int)data){
+			node.rightLeaf = this.removeNode(data,node.rightLeaf);
+		}else if((int)node.data > (int)data){
+			node.leftLeaf = this.removeNode(data,node.leftLeaf);
+		}
+		return node;
+	}
+	
+	public E getMinValue(Node<E> currentNode) {
+		while(currentNode.leftLeaf != null) {
+			currentNode = currentNode.leftLeaf;
+		}
+		return (E)currentNode.data;
+	}
 }
 
 class Node<E>{
