@@ -1,0 +1,10 @@
+SingleTon
+-> Eager Initialization
+-> Static Initialization
+-> Lazy Initialization
+-> Thread Safe Initialization
+-> Bill pugh Initialization
+
+-> Reflection problem when comparing hashCode
+
+-> Use serializable and protected resolve() to getInstance.

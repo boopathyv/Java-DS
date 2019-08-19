@@ -1,0 +1,26 @@
+https://www.youtube.com/watch?v=3ZDZ-N0EPV0
+
+String
+pattern
+
+* - 0 character or a sequence,
+? - single character/compulsory one character,
++ - compare the previous character/compulsory one character
+
+* 
+if(pattern[i] == "*"){
+	lookup[i][j] = look[i-1][j] || look[i][j-1];
+}
+if(string[i] == pattern[i] || pattern[i] == "?"){
+	lookup[i][j] = look[i-1][j-1];
+}
+if(pattern[i] == "+"){
+  if(pattern[i-1] != "+","?","*"){
+  	if(pattern[i-1] == string[i]){
+  		lookup[i][j] = look[i-1][j-1];
+  	}
+  }else if(string[i] == look[i-1][j-1].character){
+  	lookup[i][j] = look[i-1][j-1];
+  }
+}
+

@@ -1,0 +1,6 @@
+The adapter design pattern is one of the structural design patterns 
+and it’s used so that two unrelated interfaces can work together. 
+The object that joins these unrelated interfaces is called an Adapter.
+
+testClassAdapter();
+testObjectAdapter();
