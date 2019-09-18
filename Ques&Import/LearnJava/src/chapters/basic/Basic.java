@@ -7,6 +7,10 @@ public class Basic {
 	int dude = 89;
 	private int common = 89;
 	
+	public int sendIntValue() {
+		return 1;
+	}
+	
 	public static void main(String[] args) {
 		System.out.println(Another.DAYS_IN_WEEK);
 		System.out.println(Another.c);

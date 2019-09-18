@@ -1,5 +1,6 @@
 package chapters.paypal;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,17 +9,17 @@ public class Nonnegative {
 
 	
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter No. of TestCases");
-		int testCase = sc.nextInt();
-		for (int i = 0; i < testCase; i++) {
-			System.out.println("Enter No.");
-			int number = sc.nextInt();
-			testAndPrint(number);
-		}
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Enter No. of TestCases");
+//		int testCase = sc.nextInt();
+//		for (int i = 0; i < testCase; i++) {
+//			System.out.println("Enter No.");
+//			String number = sc.next();
+//		}
+		testAndPrint("3773561366613203692478122629384");
 	}
 
-	private static void testAndPrint(int number) {
+	private static void testAndPrint(String number) {
 		String binaryRep = getBinaryRepresentation(number);
 		int length = binaryRep.length();
 		List<String> list = new ArrayList<>();
@@ -50,13 +51,7 @@ public class Nonnegative {
 		return count%2 == 0 ? false : true;
 	}
 
-	private static String getBinaryRepresentation(int number) {
-		StringBuilder value = new StringBuilder();
-		while(number >= 2) {
-			value.append(number%2);
-			number = number/2;
-		}
-		value.append(number);
-		return value.reverse().toString();
+	private static String getBinaryRepresentation(String number) {
+		return BigDecimal.valueOf(Double.parseDouble(number)).toBigInteger().toString(2);
 	}
 }
