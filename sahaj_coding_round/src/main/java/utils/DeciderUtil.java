@@ -3,7 +3,7 @@ package utils;
 import bean.Coins;
 import bean.Player;
 
-public class Decider {
+public class DeciderUtil {
 	
 	public static boolean foulCheck(Player player) {
 		return player.getFoulCount() == 3;

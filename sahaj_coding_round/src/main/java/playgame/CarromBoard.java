@@ -3,7 +3,7 @@ package playgame;
 import bean.Coins;
 import bean.Player;
 import enums.StrikeType;
-import utils.Decider;
+import utils.DeciderUtil;
 
 public class CarromBoard {	
 	
@@ -34,7 +34,7 @@ public class CarromBoard {
 			
 			players[playerNo].setScore(players[playerNo].getScore() + strike.getPoints());
 
-			if (Decider.foulCheck(players[playerNo])) {
+			if (DeciderUtil.foulCheck(players[playerNo])) {
 				players[playerNo].setScore(players[playerNo].getScore() - 1);
 				players[playerNo].setFoulCount(0);
 			}
@@ -51,7 +51,7 @@ public class CarromBoard {
 				coin.setBlackCoin(coin.getBlackCoin() - strike.getCoinRemoved());
 			}
 			
-			if (Decider.wonCheck(players) || Decider.areCoinsExhausted(coin)) {
+			if (DeciderUtil.wonCheck(players) || DeciderUtil.areCoinsExhausted(coin)) {
 				return players;
 			}
 		}
@@ -60,7 +60,7 @@ public class CarromBoard {
 	}
 	
 	private String getResult(Player[] players) {
-		return Decider.result(players);
+		return DeciderUtil.result(players);
 	}
 	
 	private Player[] getPlayers() {
