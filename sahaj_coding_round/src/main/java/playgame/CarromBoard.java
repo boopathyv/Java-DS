@@ -8,7 +8,7 @@ import utils.Decider;
 public class CarromBoard {	
 	
 	final static int PLAYERS = 2;
-
+	
 	private Player[] startGame(Integer[] inputs) {
 		Player[] players = getPlayers(); 
 		Coins coin = Coins.getInstance();
@@ -63,7 +63,7 @@ public class CarromBoard {
 		return Decider.result(players);
 	}
 	
-	public Player[] getPlayers() {
+	private Player[] getPlayers() {
 		Player[] players = new Player[2];
 		players[0] = new Player(1, 0, 0);
 		players[1] = new Player(2, 0, 0);
