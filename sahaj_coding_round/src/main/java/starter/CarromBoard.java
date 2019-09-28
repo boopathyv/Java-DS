@@ -1,8 +1,8 @@
-package playgame;
+package starter;
 
-import bean.Coins;
-import bean.Player;
 import enums.StrikeType;
+import models.Coins;
+import models.Player;
 import utils.DeciderUtil;
 
 public class CarromBoard {	

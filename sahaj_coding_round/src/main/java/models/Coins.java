@@ -1,4 +1,4 @@
-package bean;
+package models;
 
 public class Coins {
 	private Integer redCoin;

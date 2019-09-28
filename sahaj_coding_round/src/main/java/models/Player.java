@@ -1,4 +1,4 @@
-package bean;
+package models;
 
 public class Player{
 	private Integer id;

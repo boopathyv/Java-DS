@@ -1,7 +1,7 @@
 package utils;
 
-import bean.Coins;
-import bean.Player;
+import models.Coins;
+import models.Player;
 
 public class DeciderUtil {
 	
