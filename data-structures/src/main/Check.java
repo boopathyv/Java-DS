@@ -28,6 +28,7 @@ public class Check {
 
 	private static void getsorted(int[] is) {
 		for (int i = 0; i < is.length; i++) {
+			System.out.println();
 			for (int j = 0; j < is.length; j++) {
 				if(is[i] < is[j]) {
 					int tmp = is[i];
