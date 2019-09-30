@@ -95,7 +95,7 @@ class CarromTest {
 	public void test7() {
 		Integer[] inputs = new Integer[] {4, 2, 5, 2, 4, 2};
 		String result = carrom.playCarrom(inputs);
-		assertTrue("Player 2 wins, score -5/6".equals(result));
+		assertTrue("Player 2 wins, score -6/6".equals(result));
 	}
 	
 	// Test cases : A game is won by the first player to have won at least 5 points, 

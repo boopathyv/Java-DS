@@ -1,5 +1,8 @@
 package starter;
 
+import java.util.Arrays;
+import java.util.List;
+
 import enums.StrikeType;
 import models.Coins;
 import models.Player;
@@ -8,6 +11,8 @@ import utils.DeciderUtil;
 public class CarromBoard {	
 	
 	final static int PLAYERS = 2;
+	
+	List<Integer> nonStrikerList = Arrays.asList(4,5,6);
 	
 	private Player[] startGame(Integer[] inputs) {
 		Player[] players = getPlayers(); 
@@ -21,7 +26,7 @@ public class CarromBoard {
 				players[playerNo].setFoulCount(players[playerNo].getFoulCount() + 1);
 			}
 
-			if(strike.getStrikeOption() == 6) {
+			if(nonStrikerList.contains(strike.getStrikeType())) {
 				int strikeCount = players[playerNo].getNonStrikeCount();
 				players[playerNo].setNonStrikeCount(strikeCount+1);
 				if(players[playerNo].getNonStrikeCount() == 3) {
@@ -41,8 +46,8 @@ public class CarromBoard {
 			if (strike.getCoinRemoved() == 5) {
 				players[playerNo].setLastCoinRed(true);
 				coin.setRedCoin(0);
-			}else if(players[playerNo].isLastCoinRed() && (strike.getStrikeOption() == 1
-					|| strike.getStrikeOption() == 2)) {
+			}else if(players[playerNo].isLastCoinRed() && (strike.getStrikeType() == 1
+					|| strike.getStrikeType() == 2)) {
 				players[playerNo].setLastCoinRed(false);
 			}else {
 				if(players[playerNo].isLastCoinRed()) {
