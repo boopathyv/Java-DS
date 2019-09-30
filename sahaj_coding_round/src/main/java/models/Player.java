@@ -3,20 +3,16 @@ package models;
 public class Player{
 	private Integer id;
 	private Integer score;
-	/**
-	 * stores the count for flagging foul
-	 * foul -- happens when a player looses at least one point three times
-	 */
 	private Integer foulCount;
-	private boolean isLastCoinRed;
 	private Integer nonStrikeCount;
+	private boolean isLastCoinRed;
 
-	public Player(Integer id, Integer score, Integer foulCount) {
+	public Player(Integer id) {
 		this.id = id;
-		this.score = score;
-		this.foulCount = foulCount;
-		this.isLastCoinRed = false;
+		this.score = 0;
+		this.foulCount = 0;
 		this.nonStrikeCount = 0;
+		this.isLastCoinRed = false;
 	}
 	
 	public int getNonStrikeCount() {

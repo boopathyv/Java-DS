@@ -10,18 +10,18 @@ import utils.DeciderUtil;
 
 public class CarromBoard {	
 	
-	final static int PLAYERS = 2;
+	private final int NO_OF_PLAYERS = 2;
 	
-	List<Integer> nonStrikerList = Arrays.asList(4,5,6);
+	private final List<Integer> nonStrikerList = Arrays.asList(4,5,6);
 	
 	private Player[] startGame(Integer[] inputs) {
 		Player[] players = getPlayers(); 
 		Coins coin = Coins.getInstance();
-		int playerNo;
+		int playerNo = 0;
 		
 		for (Integer i = 0; i < inputs.length; i++) {
 			StrikeType strike = StrikeType.getStrike(inputs[i]);
-			playerNo = i % PLAYERS;
+			playerNo = i % NO_OF_PLAYERS;
 			if (strike.getPoints() < 0) {
 				players[playerNo].setFoulCount(players[playerNo].getFoulCount() + 1);
 			}
@@ -39,7 +39,7 @@ public class CarromBoard {
 			
 			players[playerNo].setScore(players[playerNo].getScore() + strike.getPoints());
 
-			if (DeciderUtil.foulCheck(players[playerNo])) {
+			if (DeciderUtil.checkForFoul(players[playerNo])) {
 				players[playerNo].setScore(players[playerNo].getScore() - 1);
 				players[playerNo].setFoulCount(0);
 			}
@@ -56,7 +56,7 @@ public class CarromBoard {
 				coin.setBlackCoin(coin.getBlackCoin() - strike.getCoinRemoved());
 			}
 			
-			if (DeciderUtil.wonCheck(players) || DeciderUtil.areCoinsExhausted(coin)) {
+			if (DeciderUtil.checkForWin(players) || DeciderUtil.hasCoinsExhausted(coin)) {
 				return players;
 			}
 		}
@@ -70,13 +70,14 @@ public class CarromBoard {
 	
 	private Player[] getPlayers() {
 		Player[] players = new Player[2];
-		players[0] = new Player(1, 0, 0);
-		players[1] = new Player(2, 0, 0);
+		players[0] = new Player(1);
+		players[1] = new Player(2);
 		return players;
 	}
 	
 	public String playCarrom(Integer[] inputs) {
-		return getResult(startGame(inputs));
+		Player[] players = startGame(inputs);
+		return getResult(players);
 	}
 
 }
