@@ -6,7 +6,7 @@ interface FuncInterface
 //    void abstractFun(int x);
     
     void sum(int w,int x,int y,int z); 
-  
+    
     // A non-abstract (or default) function 
     default void normalFun() 
     { 
